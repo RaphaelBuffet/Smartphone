@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/src/Poker/Card.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/contact/ContactApp.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/contact/ContactForm.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/gallery/Gallery.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/gallery/GalleryApp.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/gallery/PictureDisplay.java" charset="windows-1252" />
+  </component>
+</project>
