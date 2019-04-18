@@ -10,7 +10,6 @@ public class Test {
 		FrameBases a=new FrameBases();
 		a.setVisible(true);
 		
-		//smartphone
 	}
 
 }
