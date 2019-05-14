@@ -6,6 +6,7 @@ import java.text.*;
 import java.util.Calendar;
 import javax.swing.*;
 
+import Gallery.GalleryApp;
 import Ressources.Button;
 import Ressources.Images;
 import Ressources.Kernel32;
@@ -51,7 +52,7 @@ public class FrameBases extends JFrame {
 	
 	// importation des applications
 //	private ContactApp contactApp = new ContactApp(this);
-//	private GalleryApp galleryApp = new GalleryApp(this);
+	private GalleryApp galleryApp = new GalleryApp(this);
 //	private PokerApp pokerApp = new PokerApp(this);
 	
 	
@@ -103,7 +104,7 @@ public class FrameBases extends JFrame {
 		// ajout de nos diff�rentes card(application)
 		contentPanel.add(accueilPanel, "AccueilPanel");
 		//contentPanel.add(contactApp, "ContactApp");
-		//contentPanel.add(galleryApp,"GalleryApp");
+		contentPanel.add(galleryApp,"GalleryApp");
 		//contentPanel.add(pokerApp,"PokerApp");
 		
 

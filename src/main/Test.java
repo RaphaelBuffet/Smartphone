@@ -1,6 +1,10 @@
 package main;
 
+import Gallery.GalleryApp;
 import frame.*;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Test {
 
@@ -9,6 +13,7 @@ public class Test {
 		
 		FrameBases a=new FrameBases();
 		a.setVisible(true);
+
 		
 	}
 
