@@ -1,6 +1,7 @@
 package Ressources;
 
 import java.awt.Graphics;
+import java.awt.geom.AffineTransform;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
