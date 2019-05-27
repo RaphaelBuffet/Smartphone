@@ -54,6 +54,10 @@ public class Button extends JButton {
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(width, height));
 	}
+	public Button(String text){
+		setText(text);
+		setSize(480,100);
+	}
 	
 
 	public Button(ImageIcon image, int width, int height)

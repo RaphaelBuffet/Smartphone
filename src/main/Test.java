@@ -1,6 +1,5 @@
 package main;
 
-import Gallery.GalleryApp;
 import frame.*;
 
 import javax.swing.*;
