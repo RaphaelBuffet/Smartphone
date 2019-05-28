@@ -28,7 +28,7 @@ public class FrameBases extends JFrame {
 	//d�finission des bouton pour acc�der aux applications
 	private Button gallery =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/gallery.png")),new Color(242,206,190),new Color(181,164,154));
 	private Button contact =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/contact.png")),new Color(242,206,190),new Color(181,164,154));
-
+	private Button memory = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/memory.png")),new Color(242,206,190),new Color(181,164,154));
 	/** The batterypourcent status. Uses the JAN library (included in the project)*/
 	Kernel32.SYSTEM_POWER_STATUS batteryStatus = new Kernel32.SYSTEM_POWER_STATUS();
 
@@ -118,6 +118,9 @@ public class FrameBases extends JFrame {
 		
 		appsPanel.add(gallery);
 		gallery.addActionListener(new ClickGallery());
+
+		appsPanel.add(memory);
+		memory.addActionListener(new ClickMemory());
 
 		
 		//definission de la barre du bas de notre smartphone
@@ -235,21 +238,22 @@ public class FrameBases extends JFrame {
 		}
 	}
 	//creation de l'action du bouton gallery
-	class ClickGallery implements ActionListener 
+	class ClickGallery implements ActionListener
 	{
-		public void actionPerformed(ActionEvent e) 
+		public void actionPerformed(ActionEvent e)
 		{
 			changeCard("GalleryApp");
 		}
 	}
-	//creation de l'action du bouton poker
-	class ClickPoker implements ActionListener 
+	//creation de l'action du bouton memory
+	class ClickMemory implements ActionListener
 	{
-		public void actionPerformed(ActionEvent e) 
+		public void actionPerformed(ActionEvent e)
 		{
-			changeCard("PokerApp");
+			changeCard("MemoryApp");
 		}
 	}
+
 	//creation de l'action du bouton retour
 	class backClik implements ActionListener 
 	{

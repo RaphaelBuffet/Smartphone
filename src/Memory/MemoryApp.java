@@ -10,8 +10,9 @@ public class MemoryApp extends JPanel {
     private BorderLayout borderLayout;
 
     public MemoryApp(FrameBases frameBases) {
-        BorderLayout borderLayout = new BorderLayout(1,1);
+        BorderLayout borderLayout = new BorderLayout();
 
+        add(new MemoryCards());
         setLayout(borderLayout);
 
     }
