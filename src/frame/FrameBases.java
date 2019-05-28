@@ -68,7 +68,7 @@ public class FrameBases extends JFrame {
 		// d�marre l'historisation du changement de card
 		HistoriquePanel[0]="AccueilPanel"; 
 		//cr�e le pourcentage de battery automatique
-		Kernel32.INSTANCE.GetSystemPowerStatus(batteryStatus); 
+		Kernel32.INSTANCE.GetSystemPowerStatus(batteryStatus);
 		batteryPourcent = new JLabel(getbatterypourcentPercent());
 		batteryPourcent.setForeground(Color.WHITE);
 		//d�marre l'horloge
