@@ -6,42 +6,42 @@ import java.text.*;
 import java.util.Calendar;
 import javax.swing.*;
 
-import Contact.ContactApp;
+import Gallery.GalleryApp;
 import Ressources.Button;
 import Ressources.Images;
 import Ressources.Kernel32;
 
 
 public class FrameBases extends JFrame {
-	
+
 	private JLabel batteryPourcent;
 	private JPanel statusPanel = new JPanel();
 	private JPanel homePanel = new JPanel();
 	private String [] HistoriquePanel=new String[20];
 	private int Contactphoto;
-	
-	
-	
+
+
+
 	//d�finission du fond d'�cran
 	private Images accueilPanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/wallpaper.jpeg")));
-	
+
 	//d�finission des bouton pour acc�der aux applications
 	private Button gallery =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/gallery.png")),new Color(242,206,190),new Color(181,164,154));
 	private Button contact =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/contact.png")),new Color(242,206,190),new Color(181,164,154));
 
 	/** The batterypourcent status. Uses the JAN library (included in the project)*/
 	Kernel32.SYSTEM_POWER_STATUS batteryStatus = new Kernel32.SYSTEM_POWER_STATUS();
-	
 
-	//d�finission de la fenetre en image smartphone 
+
+	//d�finission de la fenetre en image smartphone
 	private Images phonePanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/smartphone.png")));
-	
-	
+
+
 	//cr�ation de l'horloge automatique
 	private JLabel heure = new JLabel();
 	final private DateFormat DATEFORMAT = new SimpleDateFormat("HH:mm");
 	private Timer timer = new Timer(0, new CurrentTime());
-	
+
 
 	// cr�ation des boutons du panel fixe
 	private Button home = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/home.png")));
@@ -49,46 +49,46 @@ public class FrameBases extends JFrame {
 	private Button menu =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/menu.png")));
 	private Button power=new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/power.png")));
 	private ImageIcon batteryStates= new ImageIcon(getbatteryState());
-	
+
 	// importation des applications
-	private ContactApp contactApp = new ContactApp(this);
-//	private GalleryApp galleryApp = new GalleryApp(this);
+//	private ContactApp contactApp = new ContactApp(this);
+	private GalleryApp galleryApp = new GalleryApp(this);
 //	private PokerApp pokerApp = new PokerApp(this);
-	
-	
+
+
 	//d�finissions d'un cardLAyout
 	protected CardLayout cardLayout = new CardLayout();
 	private JPanel contentPanel = new JPanel(cardLayout);
-	
+
 	//d�finision d0un flowLAyout pour placer les applications
 	private JPanel appsPanel = new JPanel(new FlowLayout());
-	
+
 	// constructeur de la FRame principale
 	public FrameBases() {
 		// d�marre l'historisation du changement de card
-		HistoriquePanel[0]="AccueilPanel"; 
+		HistoriquePanel[0]="AccueilPanel";
 		//cr�e le pourcentage de battery automatique
 		Kernel32.INSTANCE.GetSystemPowerStatus(batteryStatus);
 		batteryPourcent = new JLabel(getbatterypourcentPercent());
 		batteryPourcent.setForeground(Color.WHITE);
 		//d�marre l'horloge
 		timer.start();
-		
 
-		//d�finis l'emplacement de notre fenetre image 
+
+		//d�finis l'emplacement de notre fenetre image
 		setSize(480, 860);
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(true);
 		setUndecorated(true);
 		setBackground(new Color(0, 0, 0, 0));
-		
+
 		setContentPane(phonePanel);
 		phonePanel.setOpaque(false);
 		phonePanel.setLayout(new BorderLayout());
-		
+
 		phonePanel.add(contentPanel, BorderLayout.CENTER);
-		
-		
+
+
 		//d�finis la barre du haut de notre smartphone
 		phonePanel.add(statusPanel, BorderLayout.NORTH);
 		statusPanel.add(heure, BorderLayout.WEST);
@@ -100,11 +100,11 @@ public class FrameBases extends JFrame {
 		statusPanel.add(batteryPourcent);
 		power.setPreferredSize(new Dimension(350, 50));
 		statusPanel.setPreferredSize(new Dimension(480, 45));
-				
+
 		// ajout de nos diff�rentes card(application)
 		contentPanel.add(accueilPanel, "AccueilPanel");
-		contentPanel.add(contactApp, "ContactApp");
-		//contentPanel.add(galleryApp,"GalleryApp");
+		//contentPanel.add(contactApp, "ContactApp");
+		contentPanel.add(galleryApp,"GalleryApp");
 		//contentPanel.add(pokerApp,"PokerApp");
 		
 
