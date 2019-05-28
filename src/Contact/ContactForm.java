@@ -3,17 +3,34 @@ package Contact;
 import javax.swing.*;
 import java.awt.*;
 
-public class ContactForm extends JFrame {
+public class ContactForm extends JLabel {
 
-    private JTextField prenom;
-    private JTextField nom;
-    private JTextField number;
+    private JTextField prenom= new JTextField();
+    private JTextField nom = new JTextField();
+    private JTextField number = new JTextField();
+    private JTextField location = new JTextField();
+    private JTextField birthday = new JTextField();
+    private Label prenomL= new Label("Prenom :");
+    private Label nomL= new Label("Nom :");
+    private Label numberL= new Label("Numero :");
+    private Label birthdayL= new Label("anniversaire :");
+    private Label locationL= new Label("adresse :");
+
 
 
     ContactForm(){
-        add(prenom);
+        GridLayout gridLayout=new GridLayout(5,3);
+        setLayout(gridLayout);
+        add(nomL);
         add(nom);
+        add(prenomL);
+        add(prenom);
+        add(numberL);
         add(number);
+        add(locationL);
+        add(location);
+        add(birthdayL);
+        add(birthday);
     }
 
 }

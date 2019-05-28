@@ -1,12 +1,13 @@
 package Contact;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Test extends JFrame {
 
     public Test(){
         this.setVisible(true);
-        setSize(300,300);
+        setSize(new Dimension(480,740));
         add(new ContactForm());
     }
 }
