@@ -6,7 +6,6 @@ import java.text.*;
 import java.util.Calendar;
 import javax.swing.*;
 
-import Contact.ContactApp;
 import Memory.MemoryApp;
 import Ressources.Button;
 import Ressources.Images;
@@ -52,7 +51,7 @@ public class FrameBases extends JFrame {
 	private ImageIcon batteryStates= new ImageIcon(getbatteryState());
 
 	// importation des applications
-	private ContactApp contactApp = new ContactApp(this);
+//	private ContactApp contactApp = new ContactApp(this);
 //	private GalleryApp galleryApp = new GalleryApp(this);
 	private MemoryApp memoryapp = new MemoryApp(this);
 
@@ -104,7 +103,7 @@ public class FrameBases extends JFrame {
 
 		// ajout de nos diff�rentes card(application)
 		contentPanel.add(accueilPanel, "AccueilPanel");
-		contentPanel.add(contactApp, "ContactApp");
+		//contentPanel.add(contactApp, "ContactApp");
 		//contentPanel.add(galleryApp,"GalleryApp");
 		contentPanel.add(memoryapp,"MemoryApp");
 		
