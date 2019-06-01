@@ -116,6 +116,14 @@ public class GalleryImages extends JPanel {
         return index;
     }
 
+    public ArrayList<File> getFilesImage() {
+        return filesImage;
+    }
+
+    public ArrayList<JButton> getListButton() {
+        return listButton;
+    }
+
     /*** CLASS ***/
     //Arrondire les bouttons
     class RoundedBorder implements Border{
