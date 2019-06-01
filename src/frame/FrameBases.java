@@ -80,7 +80,7 @@ public class FrameBases extends JFrame {
 		//d�finis l'emplacement de notre fenetre image
 		setSize(480, 860);
 		setLocationRelativeTo(null);
-		setAlwaysOnTop(true);
+		setAlwaysOnTop(false);
 		setUndecorated(true);
 		setBackground(new Color(0, 0, 0, 0));
 
