@@ -16,7 +16,6 @@ import java.nio.file.Paths;
 public class GalleryHeader extends JPanel {
 
     private JFrame delConf = new JFrame();
-    private int a;
 
     private File dir = new File("src/res/Gallery");
 
@@ -79,6 +78,7 @@ public class GalleryHeader extends JPanel {
         }
         if (result != null) {
             System.out.println("File moved successfully.");
+            galleryApp.getGalleryImages().refraishGallery();
         } else {
             new JOptionPane().showMessageDialog(delConf,
                     "Cette image existe deja dans la gallerie! Veuillez la renomer!",
@@ -86,7 +86,6 @@ public class GalleryHeader extends JPanel {
                     JOptionPane.WARNING_MESSAGE);
             System.out.println("File movement failed. You need to rename the file");
         }
-        galleryImages.refraishGallery();
     }
 
     //ajouter ou supprimer une image
@@ -95,7 +94,7 @@ public class GalleryHeader extends JPanel {
 
             //ajouter une image à la gallerie
             if (e.getSource() == buttonAddImage) {
-                    FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
+                    FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif, png");
                     jfc.setFileFilter(filter);
                     int returnVal = jfc.showOpenDialog(getParent());
                     if(returnVal == JFileChooser.APPROVE_OPTION) {

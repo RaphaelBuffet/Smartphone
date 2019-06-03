@@ -263,10 +263,5 @@ public class FrameBases extends JFrame {
 			cardLayout.show(contentPanel, getHistorique());//on affiche la derni�re couche
 		}
 	};
-	
-
-
-	
-	
 }
 	

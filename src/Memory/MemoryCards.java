@@ -26,15 +26,19 @@ public class MemoryCards extends JPanel implements ActionListener {
     private Card c1;
     private Card c2;
     private Card c3;
+    private int cptIsMatched = 0;
 
-    public MemoryCards(){
+    private MemoryApp memoryApp;
+
+    public MemoryCards(MemoryApp memoryApp){
+        this.memoryApp = memoryApp;
         setBackground(Color.BLACK);
 
         GridLayout layout = new GridLayout(NUMBER_OF_ROWS, NUMBER_OF_COLUMNS, HORIZONTAL_GAP, VERTICAL_GAP);
         setLayout(layout);
 
         setBorder(BorderFactory.createEmptyBorder(PANEL_BORDER,PANEL_BORDER,PANEL_BORDER,PANEL_BORDER));
-
+        memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
         cards = new Card[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         shuffle();
         setCards();
@@ -109,7 +113,11 @@ public class MemoryCards extends JPanel implements ActionListener {
         if (c1.getBack().equals(c2.getBack())) {
             c1.setMatched(true);
             c2.setMatched(true);
-            if (isEndOfGame() == true) {
+                if (c1.isCMatched() == true && c2.isCMatched() == true){
+                    cptIsMatched++;
+                    System.out.println("score: " + cptIsMatched);
+                }
+            if (cptIsMatched == 8) {
                 JOptionPane.showMessageDialog(this, "You won in " + score + " moves !");
             }
             c1 = null;
@@ -152,7 +160,6 @@ public class MemoryCards extends JPanel implements ActionListener {
             if (!selectedCard.isCMatched()) {
                 c2 = selectedCard;
                 showCardColor();
-
             }
         }
         if (c1 != null && c2 != null && c2 != selectedCard && c3 == null) {
@@ -170,6 +177,14 @@ public class MemoryCards extends JPanel implements ActionListener {
 
         doTurn();
         score++;
+        memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void resetGame(){
+
+    }
 }

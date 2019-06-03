@@ -7,13 +7,31 @@ import java.awt.*;
 
 public class MemoryApp extends JPanel {
 
+    private MemoryHeader memoryHeader = new MemoryHeader(this);
+    private MemoryCards memoryCards = new MemoryCards(this);
+
+
     public MemoryApp(FrameBases frameBases) {
         BorderLayout borderLayout = new BorderLayout();
         setLayout(borderLayout);
 
-        add(new MemoryHeader(),BorderLayout.NORTH);
-        add(new MemoryCards(),BorderLayout.CENTER);
+        add(memoryHeader,BorderLayout.NORTH);
+        add(memoryCards,BorderLayout.CENTER);
 
     }
 
+    public void resetGame(){
+        remove(memoryCards);
+        add(new MemoryCards(this));
+        revalidate();
+        System.out.println("reset game");
+    }
+
+    public MemoryHeader getMemoryHeader() {
+        return memoryHeader;
+    }
+
+    public MemoryCards getMemoryCards() {
+        return memoryCards;
+    }
 }
