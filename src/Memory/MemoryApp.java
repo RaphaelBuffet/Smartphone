@@ -7,13 +7,12 @@ import java.awt.*;
 
 public class MemoryApp extends JPanel {
 
-    private BorderLayout borderLayout;
-
     public MemoryApp(FrameBases frameBases) {
         BorderLayout borderLayout = new BorderLayout();
-
-        add(new MemoryCards());
         setLayout(borderLayout);
+
+        add(new MemoryHeader(),BorderLayout.NORTH);
+        add(new MemoryCards(),BorderLayout.CENTER);
 
     }
 
