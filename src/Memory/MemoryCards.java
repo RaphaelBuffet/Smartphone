@@ -182,8 +182,4 @@ public class MemoryCards extends JPanel implements ActionListener {
         score++;
         memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
     }
-
-    public int getScore() {
-        return score;
-    }
 }
