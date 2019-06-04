@@ -148,12 +148,6 @@ public class GalleryImages extends JPanel {
 
         /*** LISTENER ***/
 
-    class dialogListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    }
-
     //afficher la gallerie
     class ActionImage implements MouseListener {
 
