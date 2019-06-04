@@ -113,12 +113,14 @@ public class MemoryCards extends JPanel implements ActionListener {
         if (c1.getBack().equals(c2.getBack())) {
             c1.setMatched(true);
             c2.setMatched(true);
-                if (c1.isCMatched() == true && c2.isCMatched() == true){
-                    cptIsMatched++;
-                    System.out.println("score: " + cptIsMatched);
-                }
-            if (cptIsMatched == 8) {
+
+            cptIsMatched++;
+            System.out.println("score: " + cptIsMatched);
+
+            if (isEndOfGame() == true) {
                 JOptionPane.showMessageDialog(this, "You won in " + score + " moves !");
+                memoryApp.resetGame();
+                score = -1;
             }
             c1 = null;
             c2 = null;
@@ -162,6 +164,7 @@ public class MemoryCards extends JPanel implements ActionListener {
                 showCardColor();
             }
         }
+
         if (c1 != null && c2 != null && c2 != selectedCard && c3 == null) {
             c3 = selectedCard;
             check();
@@ -182,9 +185,5 @@ public class MemoryCards extends JPanel implements ActionListener {
 
     public int getScore() {
         return score;
-    }
-
-    public void resetGame(){
-
     }
 }
