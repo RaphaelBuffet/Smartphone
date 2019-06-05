@@ -112,7 +112,7 @@ public class MemoryCards extends JPanel implements ActionListener {
             c2.setMatched(true);
 
             if (isEndOfGame() == true) {
-                JOptionPane.showMessageDialog(this, "You won in " + score + " moves !");
+                JOptionPane.showMessageDialog(this, "You won with the score of " + score + " and you have use " + (100-score)+" moves !");
                 memoryApp.resetGame();
                 score = -1;
             }

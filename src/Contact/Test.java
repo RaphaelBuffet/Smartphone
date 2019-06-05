@@ -10,4 +10,9 @@ public class Test extends JFrame {
         setSize(new Dimension(480,740));
         add(new ContactForm());
     }
+    public Test(Contact contact){
+        this.setVisible(true);
+        setSize(new Dimension(480,740));
+        add(new ContactForm(contact));
+    }
 }

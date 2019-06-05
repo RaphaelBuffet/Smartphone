@@ -47,6 +47,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jna" level="application" />
-    <orderEntry type="library" name="miglayout-4.01" level="project" />
+    <orderEntry type="library" name="miglayout-4.01" level="application" />
   </component>
 </module>

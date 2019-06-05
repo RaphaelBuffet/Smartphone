@@ -32,5 +32,24 @@ public class ContactForm extends JLabel {
         add(birthdayL);
         add(birthday);
     }
+    ContactForm(Contact contact){
+        GridLayout gridLayout=new GridLayout(5,3);
+        setLayout(gridLayout);
+        nom.setText(contact.getNom());
+        prenom.setText(contact.getPrenom());
+        number.setText(contact.getTelephone());
+        location.setText(contact.getLocation());
+        birthday.setText(contact.getBirthday());
+        add(nomL);
+        add(nom);
+        add(prenomL);
+        add(prenom);
+        add(numberL);
+        add(number);
+        add(locationL);
+        add(location);
+        add(birthdayL);
+        add(birthday);
+    }
 
 }
