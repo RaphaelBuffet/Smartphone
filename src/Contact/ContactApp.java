@@ -6,8 +6,13 @@ import frame.FrameBases;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.ArrayList;
+
+
 
 public class ContactApp extends JPanel {
+
     ContactHeader contactHeader=new ContactHeader();
 
     JScrollPane scrollPane=new JScrollPane(new ContactList(contactHeader));
@@ -20,8 +25,6 @@ public class ContactApp extends JPanel {
         scrollPane.setPreferredSize(new Dimension(470,680));
         add(scrollPane);
 
-
-
-
     }
+
 }
