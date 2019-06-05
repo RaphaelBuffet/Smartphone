@@ -25,7 +25,6 @@ public class MemoryApp extends JPanel {
         memoryCards=new MemoryCards(this);
         add(memoryCards);
         revalidate();
-        System.out.println("reset game");
     }
 
     public MemoryHeader getMemoryHeader() {

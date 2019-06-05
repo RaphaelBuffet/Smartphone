@@ -15,10 +15,9 @@ public class MemoryCards extends JPanel implements ActionListener {
     private static final int PANEL_BORDER = 20;
 
 
-    private Card[][] cards = null;
+    private Card[][] cards;
     private String[] colors = {"Blue", "Blue", "Red", "Red", "Green", "Green", "Magenta", "Magenta", "Orange", "Orange", "Cyan", "Cyan", "Black", "Black", "Pink", "Pink"};
 
-    private Random random;
     private Field field;
     private Color color;
     private int score;
@@ -26,7 +25,6 @@ public class MemoryCards extends JPanel implements ActionListener {
     private Card c1;
     private Card c2;
     private Card c3;
-    private int cptIsMatched = 0;
 
     private MemoryApp memoryApp;
 
@@ -40,7 +38,7 @@ public class MemoryCards extends JPanel implements ActionListener {
         setBorder(BorderFactory.createEmptyBorder(PANEL_BORDER,PANEL_BORDER,PANEL_BORDER,PANEL_BORDER));
         memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
         cards = new Card[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-        shuffle();
+        mix();
         setCards();
 
     }
@@ -56,10 +54,9 @@ public class MemoryCards extends JPanel implements ActionListener {
         }
     }
 
-    public void shuffle() {
-        random = new Random();
+    public void mix() {
         for (int i = 0; i < colors.length; i++) {
-            int pos = random.nextInt(colors.length);
+            int pos = (int)(Math.random()*colors.length);
             String temp = colors[i];
             colors[i] = colors[pos];
             colors[pos] = temp;
@@ -113,9 +110,6 @@ public class MemoryCards extends JPanel implements ActionListener {
         if (c1.getBack().equals(c2.getBack())) {
             c1.setMatched(true);
             c2.setMatched(true);
-
-            cptIsMatched++;
-            System.out.println("score: " + cptIsMatched);
 
             if (isEndOfGame() == true) {
                 JOptionPane.showMessageDialog(this, "You won in " + score + " moves !");
