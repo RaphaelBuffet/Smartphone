@@ -30,7 +30,7 @@ public class FrameBases extends JFrame {
 	//d�finission des bouton pour acc�der aux applications
 	private Button gallery =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/gallery.png")),new Color(0,28,40),new Color(145,214,206));
 	private Button contact =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/contact.png")),new Color(0,28,40),new Color(145,214,206));
-	private Button memory = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/memory.png")),new Color(0,28,40),new Color(145,214,206));
+	private Button memory = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/memory-card.png")),new Color(0,28,40),new Color(145,214,206));
 	/** The batterypourcent status. Uses the JAN library (included in the project)*/
 	Kernel32.SYSTEM_POWER_STATUS batteryStatus = new Kernel32.SYSTEM_POWER_STATUS();
 
