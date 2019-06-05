@@ -31,7 +31,7 @@ public class ContactList extends JPanel {
 
     Button[] buttons=new Button[contacts.length];
 
-    ContactList(){
+    ContactList(ContactHeader contactHeader){
         setBackground(new Color(120,120,20));
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,buttons.length*55));
@@ -44,6 +44,8 @@ public class ContactList extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     new Test(contacts[1]);
+                    contactHeader.changeButton();
+
                 }
             });
         }

@@ -8,10 +8,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ContactApp extends JPanel {
+    ContactHeader contactHeader=new ContactHeader();
 
-    JScrollPane scrollPane=new JScrollPane(new ContactList());
+    JScrollPane scrollPane=new JScrollPane(new ContactList(contactHeader));
     public ContactApp(FrameBases mainFrame){
-        add(new ContactHeader(),BorderLayout.NORTH);
+        add(contactHeader,BorderLayout.NORTH);
 
         setBackground(Color.CYAN);
 
