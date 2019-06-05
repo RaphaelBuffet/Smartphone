@@ -21,7 +21,7 @@ public class MemoryCards extends JPanel implements ActionListener {
     private Random random;
     private Field field;
     private Color color;
-    private int score = 0;
+    private int score;
     private Card selectedCard;
     private Card c1;
     private Card c2;
@@ -33,7 +33,7 @@ public class MemoryCards extends JPanel implements ActionListener {
     public MemoryCards(MemoryApp memoryApp){
         this.memoryApp = memoryApp;
         setBackground(Color.BLACK);
-
+        score =100;
         GridLayout layout = new GridLayout(NUMBER_OF_ROWS, NUMBER_OF_COLUMNS, HORIZONTAL_GAP, VERTICAL_GAP);
         setLayout(layout);
 
@@ -179,7 +179,7 @@ public class MemoryCards extends JPanel implements ActionListener {
         selectedCard = (Card) source;
 
         doTurn();
-        score++;
+        score--;
         memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
     }
 }

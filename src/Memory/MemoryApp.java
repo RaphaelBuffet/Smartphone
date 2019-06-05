@@ -22,7 +22,8 @@ public class MemoryApp extends JPanel {
 
     public void resetGame(){
         remove(memoryCards);
-        add(new MemoryCards(this));
+        memoryCards=new MemoryCards(this);
+        add(memoryCards);
         revalidate();
         System.out.println("reset game");
     }
