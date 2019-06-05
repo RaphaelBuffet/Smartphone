@@ -25,7 +25,7 @@ public class FrameBases extends JFrame {
 
 
 	//d�finission du fond d'�cran
-	private Images accueilPanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/wallpaper.jpeg")));
+	private Images accueilPanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/wallpaper.gif")));
 
 	//d�finission des bouton pour acc�der aux applications
 	private Button gallery =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/gallery.png")),new Color(242,206,190),new Color(181,164,154));
