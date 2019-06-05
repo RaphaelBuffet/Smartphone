@@ -13,10 +13,11 @@ public class ContactList extends JPanel {
 
     private ArrayList<Contact> contacts= new ArrayList<Contact>();
 
-    Button[] buttons=new Button[contacts.size()];
+
 
     ContactList(ContactHeader contactHeader){
         deSerializeObject();
+        Button[] buttons=new Button[contacts.size()];
         setBackground(new Color(120,120,20));
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,buttons.length*55));
