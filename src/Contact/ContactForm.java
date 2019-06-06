@@ -6,26 +6,21 @@ import java.awt.*;
 public class ContactForm extends JLabel {
 
     private JTextField prenom= new JTextField();
-    private JTextField nom = new JTextField();
+    JTextField nom = new JTextField();
     private JTextField number = new JTextField();
     private JTextField location = new JTextField();
     private JTextField birthday = new JTextField();
-    private final Label prenomL= new Label("Prenom :");
-    private final Label nomL= new Label("Nom :");
-    private final Label numberL= new Label("Numero :");
-    private final Label birthdayL= new Label("anniversaire :");
-    private final Label locationL= new Label("adresse :");
+    private Label prenomL= new Label("Prenom :");
+    private Label nomL= new Label("Nom :");
+    private Label numberL= new Label("Numero :");
+    private Label birthdayL= new Label("anniversaire :");
+    private Label locationL= new Label("adresse :");
 
 
 
     ContactForm(){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
-        nomL.setText("nom");
-        prenomL.setText("prenom");
-        numberL.setText("numero");
-        locationL.setText("adresse");
-        birthdayL.setText("anniversaire");
         add(nomL);
         add(nom);
         add(prenomL);
@@ -36,15 +31,12 @@ public class ContactForm extends JLabel {
         add(location);
         add(birthdayL);
         add(birthday);
+        revalidate();
+        repaint();
     }
     ContactForm(Contact contact){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
-        nomL.setText("nom");
-        prenomL.setText("prenom");
-        numberL.setText("numero");
-        locationL.setText("adresse");
-        birthdayL.setText("anniversaire");
         nom.setText(contact.getNom());
         prenom.setText(contact.getPrenom());
         number.setText(contact.getTelephone());
@@ -60,6 +52,13 @@ public class ContactForm extends JLabel {
         add(location);
         add(birthdayL);
         add(birthday);
+    }
+    public void setcontact(Contact contact){
+        contact.setNom(nom.getText());
+        contact.setPrenom(prenom.getText());
+        contact.setTelephone(number.getText());
+        contact.setLocation(location.getText());
+        contact.setBirthday(birthday.getText());
     }
 
 }

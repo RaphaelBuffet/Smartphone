@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class ContactList extends JPanel {
 
     private ArrayList<Contact> contacts= new ArrayList<Contact>();
+    private Contact tempcontact;
+    private int place=0;
 
 
 
@@ -31,7 +33,8 @@ public class ContactList extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     new Test(contacts.get(1));
                     contactHeader.changeButton(contactApp);
-                    contactApp.setContactForm(new ContactForm(contacts.get(1)));
+                    ContactForm contactForm= new ContactForm(contacts.get(1));
+                    contactApp.setContactForm(contactForm);
                     contactApp.changecard("ContactForm");
                 }
             });
@@ -75,6 +78,9 @@ public class ContactList extends JPanel {
             e.printStackTrace();
 
         }
+    }
+    public void removecontact(int place){
+        contacts.remove(contacts.get(place));
     }
 
 
