@@ -18,7 +18,7 @@ public class ContactList extends JPanel {
     ContactList(ContactHeader contactHeader){
         deSerializeObject();
         Button[] buttons=new Button[contacts.size()];
-        setBackground(new Color(120,120,20));
+        setBackground(Color.BLACK);
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,buttons.length*55));
 

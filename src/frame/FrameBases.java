@@ -35,22 +35,21 @@ public class FrameBases extends JFrame {
 	Kernel32.SYSTEM_POWER_STATUS batteryStatus = new Kernel32.SYSTEM_POWER_STATUS();
 
 
-	//d�finission de la fenetre en image smartphone
+	//définission de la fenetre en image smartphone
 	private Images phonePanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/smartphone.png")));
 
 
-	//cr�ation de l'horloge automatique
+	//création de l'horloge automatique
 	private JLabel heure = new JLabel();
 	final private DateFormat DATEFORMAT = new SimpleDateFormat("HH:mm");
 	private Timer timer = new Timer(0, new CurrentTime());
 
 
-	// cr�ation des boutons du panel fixe
+	// création des boutons du panel fixe
 	private Button home = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/home.png")));
 	private Button retour =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/retour.png")));
 	private Button menu =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/menu.png")));
 	private Button power=new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/power.png")));
-	private ImageIcon batteryStates= new ImageIcon(getbatteryState());
 
 	// importation des applications
 	private ContactApp contactApp = new ContactApp(this);
@@ -67,17 +66,17 @@ public class FrameBases extends JFrame {
 
 	// constructeur de la FRame principale
 	public FrameBases() {
-		// d�marre l'historisation du changement de card
+		// démarre l'historisation du changement de card
 		HistoriquePanel[0]="AccueilPanel";
-		//cr�e le pourcentage de battery automatique
+		//crée le pourcentage de battery automatique
 		Kernel32.INSTANCE.GetSystemPowerStatus(batteryStatus);
 		batteryPourcent = new JLabel(getbatterypourcentPercent());
 		batteryPourcent.setForeground(Color.WHITE);
-		//d�marre l'horloge
+		//démarre l'horloge
 		timer.start();
 
 
-		//d�finis l'emplacement de notre fenetre image
+		//définis l'emplacement de notre fenetre image
 		setSize(480, 860);
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(false);
@@ -218,9 +217,10 @@ public class FrameBases extends JFrame {
 		@Override
 	    public void actionPerformed(ActionEvent e) 
 	    {
-			//contactApp.serializeObject();
+			contactApp.serializeObject();
 			dispose();
 	        System.exit(0);
+
 	    }
 	}
 	//creation de l'action du bouton accueil

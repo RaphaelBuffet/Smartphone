@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 
 public class ContactHeader extends JPanel {
 
-    private Button addContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/add.png")),(new Color(0,191,255)),Color.CYAN);
-    private Button saveContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/save.png")),(new Color(0,191,255)),Color.CYAN);
+    private Button addContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/add.png")),(new Color(145,214,206)),new Color(100,200,20));
+    private Button saveContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/save.png")),(new Color(145,214,206)),new Color(100,200,20));
     public ContactHeader(){
-        setBackground((new Color(0,191,255)));
+        setBackground((new Color(145,214,206)));
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(480,60));
         add(addContact,BorderLayout.EAST);
