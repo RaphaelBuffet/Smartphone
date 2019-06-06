@@ -15,7 +15,7 @@ public class ContactList extends JPanel {
 
 
 
-    ContactList(ContactHeader contactHeader){
+    ContactList(ContactHeader contactHeader,ContactApp contactApp){
         deSerializeObject();
         Button[] buttons=new Button[contacts.size()];
         setBackground(Color.BLACK);
@@ -30,8 +30,9 @@ public class ContactList extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     new Test(contacts.get(1));
-                    contactHeader.changeButton();
-
+                    contactHeader.changeButton(contactApp);
+                    contactApp.setContactForm(new ContactForm(contacts.get(1)));
+                    contactApp.changecard("ContactForm");
                 }
             });
         }

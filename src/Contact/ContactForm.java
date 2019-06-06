@@ -10,17 +10,22 @@ public class ContactForm extends JLabel {
     private JTextField number = new JTextField();
     private JTextField location = new JTextField();
     private JTextField birthday = new JTextField();
-    private Label prenomL= new Label("Prenom :");
-    private Label nomL= new Label("Nom :");
-    private Label numberL= new Label("Numero :");
-    private Label birthdayL= new Label("anniversaire :");
-    private Label locationL= new Label("adresse :");
+    private final Label prenomL= new Label("Prenom :");
+    private final Label nomL= new Label("Nom :");
+    private final Label numberL= new Label("Numero :");
+    private final Label birthdayL= new Label("anniversaire :");
+    private final Label locationL= new Label("adresse :");
 
 
 
     ContactForm(){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
+        nomL.setText("nom");
+        prenomL.setText("prenom");
+        numberL.setText("numero");
+        locationL.setText("adresse");
+        birthdayL.setText("anniversaire");
         add(nomL);
         add(nom);
         add(prenomL);
@@ -35,6 +40,11 @@ public class ContactForm extends JLabel {
     ContactForm(Contact contact){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
+        nomL.setText("nom");
+        prenomL.setText("prenom");
+        numberL.setText("numero");
+        locationL.setText("adresse");
+        birthdayL.setText("anniversaire");
         nom.setText(contact.getNom());
         prenom.setText(contact.getPrenom());
         number.setText(contact.getTelephone());
