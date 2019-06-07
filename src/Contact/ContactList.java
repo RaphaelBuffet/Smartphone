@@ -36,6 +36,7 @@ public class ContactList extends JPanel {
                     ContactForm contactForm= new ContactForm(contacts.get(1));
                     contactApp.setContactForm(contactForm);
                     contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
                 }
             });
         }

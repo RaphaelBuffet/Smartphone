@@ -23,11 +23,8 @@ public class ContactApp extends JPanel {
     public ContactApp(FrameBases mainFrame){
         add(contactHeader,BorderLayout.NORTH);
         setBackground(Color.BLACK);
-
         scrollPane.createVerticalScrollBar();
         scrollPane.setPreferredSize(new Dimension(470,680));
-        //add(scrollPane);
-
         add(contentPanelContact);
         contentPanelContact.add(scrollPane, "ListeContact");
         cardLayoutContact.show(contentPanelContact, "ListeContact");
@@ -42,6 +39,14 @@ public class ContactApp extends JPanel {
     }
     public void changecard(String cardname){
         cardLayoutContact.show(contentPanelContact,cardname);
+    }
+
+    public void deleteContact(int place){
+        contactList.removecontact(place);
+    }
+    public void updateList(){
+        scrollPane=new JScrollPane(contactList);
+        revalidate();
     }
 
 }
