@@ -10,17 +10,23 @@ public class ContactForm extends JLabel {
     private JTextField number = new JTextField();
     private JTextField location = new JTextField();
     private JTextField birthday = new JTextField();
-    private Label prenomL= new Label("Prenom :");
-    private Label nomL= new Label("Nom :");
-    private Label numberL= new Label("Numero :");
-    private Label birthdayL= new Label("anniversaire :");
-    private Label locationL= new Label("adresse :");
+    private JTextField prenomL= new JTextField("Prenom :");
+    private JTextField nomL= new JTextField("Nom :");
+    private JTextField numberL= new JTextField("Numero :");
+    private JTextField birthdayL= new JTextField("anniversaire :");
+    private JTextField locationL= new JTextField("adresse :");
+    private boolean exist;
 
 
 
     ContactForm(){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
+        nomL.setEditable(false);
+        prenomL.setEditable(false);
+        numberL.setEditable(false);
+        locationL.setEditable(false);
+        birthdayL.setEditable(false);
         add(nomL);
         add(nom);
         add(prenomL);
@@ -31,12 +37,16 @@ public class ContactForm extends JLabel {
         add(location);
         add(birthdayL);
         add(birthday);
-        revalidate();
-        repaint();
+        exist=false;
     }
     ContactForm(Contact contact){
         GridLayout gridLayout=new GridLayout(5,3);
         setLayout(gridLayout);
+        nomL.setEditable(false);
+        prenomL.setEditable(false);
+        numberL.setEditable(false);
+        locationL.setEditable(false);
+        birthdayL.setEditable(false);
         nom.setText(contact.getNom());
         prenom.setText(contact.getPrenom());
         number.setText(contact.getTelephone());
@@ -52,6 +62,7 @@ public class ContactForm extends JLabel {
         add(location);
         add(birthdayL);
         add(birthday);
+        exist=true;
     }
     public void setcontact(Contact contact){
         contact.setNom(nom.getText());
@@ -60,6 +71,40 @@ public class ContactForm extends JLabel {
         contact.setLocation(location.getText());
         contact.setBirthday(birthday.getText());
     }
+    public boolean validation()
+    {
+        boolean validated;
+        Validate validate = new Validate();
+        validated = validate.isNotEmpty(prenom);
+        if(!validated)
+            return validated;
+        validated = validate.isNotEmpty(number);
+        if(!validated)
+            return validated;
+        validated = validate.phoneValide(number);
+        if(!validated)
+            return validated;
+        return validated;
+    }
+    public boolean exist(){
+        return exist;
+    }
+    public String getnom(){
+        return nom.getText();
+    }
+    public String getprenom(){
+        return prenom.getText();
+    }
+    public String getnumber(){
+        return number.getText();
+    }
+    public String getbirthday(){
+        return birthday.getText();
+    }
+    public String getlocation(){
+        return location.getText();
+    }
+
 
 
 

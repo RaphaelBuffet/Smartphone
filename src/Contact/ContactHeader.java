@@ -12,14 +12,17 @@ public class ContactHeader extends JPanel {
     private Button addContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/add.png")),(new Color(145,214,206)),new Color(100,200,20));
     private Button saveContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/save.png")),(new Color(145,214,206)),new Color(100,200,20));
     private Button deleteContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/delete.png")),(new Color(145,214,206)),new Color(100,200,20));
+    private Button backclick=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/icons/bak.png")),(new Color(145,214,206)),new Color(100,200,20));
+    private ContactForm contactForm=new ContactForm();
     public ContactHeader(ContactApp contactApp){
         setBackground((new Color(145,214,206)));
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(480,60));
         add(addContact,BorderLayout.EAST);
-        add(new JLabel("Contact"),BorderLayout.WEST);
+        add(backclick,BorderLayout.WEST);
         add(deleteContact);
-        deleteContact.setEnabled(false);
+        disableDelete();
+        disableBack();
         deleteContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,10 +35,19 @@ public class ContactHeader extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeButton(contactApp);
-                contactApp.setContactForm(new ContactForm());
+                contactApp.setContactForm(contactForm);
                 contactApp.changecard("ContactForm");
-                enableDelete();
+                enableBack();
                 revalidate();
+            }
+        });
+        backclick.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contactForm=new ContactForm();
+                contactApp.changecard("ListeContact");
+                remove(saveContact);
+                add(addContact, BorderLayout.EAST);
             }
         });
 
@@ -47,11 +59,19 @@ public class ContactHeader extends JPanel {
         saveContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                remove(saveContact);
-                add(addContact, BorderLayout.EAST);
-                contactApp.changecard("ListeContact");
-                disableDelete();
-                revalidate();
+                if(contactForm.validation()) {
+                    remove(saveContact);
+                    add(addContact, BorderLayout.EAST);
+                    contactApp.changecard("ListeContact");
+                    disableDelete();
+                    disableBack();
+                    revalidate();
+                    contactApp.addContact();
+                }
+                if (!contactForm.exist()) {
+                    contactApp.addContact();
+                }
+
             }
         });
     }
@@ -60,6 +80,12 @@ public class ContactHeader extends JPanel {
     }
     public void enableDelete(){
         deleteContact.setEnabled(true);
+    }
+    public void disableBack(){
+        backclick.setEnabled(false);
+    }
+    public void enableBack(){
+        backclick.setEnabled(true);
     }
 
 }

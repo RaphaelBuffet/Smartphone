@@ -14,6 +14,7 @@ public class ContactList extends JPanel {
     private ArrayList<Contact> contacts= new ArrayList<Contact>();
     private Contact tempcontact;
     private int place=0;
+    private ContactForm saveform;
 
 
 
@@ -23,6 +24,7 @@ public class ContactList extends JPanel {
         setBackground(Color.BLACK);
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,buttons.length*55));
+
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i]=new Button(contacts.get(i).toString());
@@ -37,6 +39,7 @@ public class ContactList extends JPanel {
                     contactApp.setContactForm(contactForm);
                     contactApp.changecard("ContactForm");
                     contactHeader.enableDelete();
+                    contactHeader.enableBack();
                 }
             });
         }
@@ -83,6 +86,7 @@ public class ContactList extends JPanel {
     public void removecontact(int place){
         contacts.remove(contacts.get(place));
     }
+    public void addContact(){contacts.add(new Contact(contacts.size(),"Ulrich","Damien","027 565 07 65","Geneve","17.12.1986"));}
 
 
 

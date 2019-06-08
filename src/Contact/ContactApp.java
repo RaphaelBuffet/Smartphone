@@ -48,5 +48,10 @@ public class ContactApp extends JPanel {
         scrollPane=new JScrollPane(contactList);
         revalidate();
     }
+    public void addContact(){
+        contactList.addContact();
+    }
+
+
 
 }

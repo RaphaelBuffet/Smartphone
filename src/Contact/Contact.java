@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class Contact implements Serializable {
 
+    private int id;
     private String nom;
     private String prenom;
     private String telephone;
     private String location;
     private String birthday;
 
-    public Contact(String nom,String prenom,String telephone,String location,String birthday){
+    public Contact(int id,String nom,String prenom,String telephone,String location,String birthday){
+        this.id=id;
         this.nom=nom;
         this.prenom=prenom;
         this.telephone=telephone;
@@ -45,9 +47,7 @@ public class Contact implements Serializable {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-    public String toString() {
-        return nom+" "+prenom+" "+telephone;
-    }
+    public String toString() { return id+". "+nom+" "+prenom; }
 
     public String getTelephone() {
         return telephone;
@@ -60,4 +60,7 @@ public class Contact implements Serializable {
     public String getPrenom() {
         return prenom;
     }
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 }
