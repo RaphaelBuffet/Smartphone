@@ -26,7 +26,7 @@ public class ContactHeader extends JPanel {
         deleteContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                contactApp.deleteContact(1);
+                contactApp.deleteContact(6);
                 contactApp.updateList();
                 contactApp.changecard("ListeContact");
             }
@@ -34,7 +34,7 @@ public class ContactHeader extends JPanel {
         addContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeButton(contactApp);
+                changeButton();
                 contactApp.setContactForm(contactForm);
                 contactApp.changecard("ContactForm");
                 enableBack();
@@ -48,32 +48,38 @@ public class ContactHeader extends JPanel {
                 contactApp.changecard("ListeContact");
                 remove(saveContact);
                 add(addContact, BorderLayout.EAST);
+                disableDelete();
+                disableBack();
             }
         });
-
-    }
-    public void changeButton(ContactApp contactApp) {
-        remove(addContact);
-        add(saveContact, BorderLayout.EAST);
-        revalidate();
         saveContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(contactForm.validation()) {
                     remove(saveContact);
                     add(addContact, BorderLayout.EAST);
+                    contactApp.updateList();
                     contactApp.changecard("ListeContact");
                     disableDelete();
                     disableBack();
                     revalidate();
-                    contactApp.addContact();
+                    if (!contactForm.exist()) {
+                        contactApp.addContact(contactForm);
+                        contactForm=new ContactForm();
+                    }
+                    else {
+                        contactApp.changeContact(contactForm);
+                    }
                 }
-                if (!contactForm.exist()) {
-                    contactApp.addContact();
-                }
-
             }
         });
+
+    }
+    public void changeButton() {
+        remove(addContact);
+        add(saveContact, BorderLayout.EAST);
+        revalidate();
+
     }
     public void disableDelete(){
         deleteContact.setEnabled(false);
@@ -88,4 +94,7 @@ public class ContactHeader extends JPanel {
         backclick.setEnabled(true);
     }
 
+    public void setContactForm(ContactForm contactForm) {
+        this.contactForm = contactForm;
+    }
 }

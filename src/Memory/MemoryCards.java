@@ -8,12 +8,6 @@ import java.lang.reflect.Field;
 import java.util.Random;
 
 public class MemoryCards extends JPanel implements ActionListener {
-    private static final int NUMBER_OF_ROWS = 4;
-    private static final int NUMBER_OF_COLUMNS = 4;
-    private static final int HORIZONTAL_GAP = 5;
-    private static final int VERTICAL_GAP = 5;
-    private static final int PANEL_BORDER = 20;
-
 
     private Card[][] cards;
     private String[] colors = {"Blue", "Blue", "Red", "Red", "Green", "Green", "Magenta", "Magenta", "Orange", "Orange", "Cyan", "Cyan", "Black", "Black", "Pink", "Pink"};
@@ -32,12 +26,12 @@ public class MemoryCards extends JPanel implements ActionListener {
         this.memoryApp = memoryApp;
         setBackground(Color.BLACK);
         score =100;
-        GridLayout layout = new GridLayout(NUMBER_OF_ROWS, NUMBER_OF_COLUMNS, HORIZONTAL_GAP, VERTICAL_GAP);
+        GridLayout layout = new GridLayout(4, 4, 5, 5);
         setLayout(layout);
 
-        setBorder(BorderFactory.createEmptyBorder(PANEL_BORDER,PANEL_BORDER,PANEL_BORDER,PANEL_BORDER));
+        setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
         memoryApp.getMemoryHeader().getLabelScor().setText("SCORE: " + score);
-        cards = new Card[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        cards = new Card[4][4];
         mix();
         setCards();
 
@@ -83,11 +77,7 @@ public class MemoryCards extends JPanel implements ActionListener {
                             cards[row][column].setSelected(true);
                             mouseClick++;
                             System.out.println(mouseClick);
-                        } else {
-                            System.out.println("This field is already selected");
                         }
-                    } else {
-                        System.out.println("This file is already matched.");
                     }
                 }
             }

@@ -33,6 +33,9 @@ public class ContactApp extends JPanel {
     public void serializeObject(){
         contactList.serializeObject();
     }
+    public void deserializeObject(){
+        contactList.deSerializeObject();
+    }
     public void setContactForm(ContactForm contactForm) {
         this.contactForm = contactForm;
         contentPanelContact.add(contactForm,"ContactForm");
@@ -45,11 +48,23 @@ public class ContactApp extends JPanel {
         contactList.removecontact(place);
     }
     public void updateList(){
-        scrollPane=new JScrollPane(contactList);
-        revalidate();
+        contentPanelContact.remove(scrollPane);
+        ContactList contactLists=new ContactList(contactHeader,this);
+        scrollPane=new JScrollPane(contactLists);
+        scrollPane.createVerticalScrollBar();
+        scrollPane.setPreferredSize(new Dimension(470,680));
+        contentPanelContact.add(scrollPane,"ListeContact");
+        contentPanelContact.updateUI();
     }
-    public void addContact(){
+    public void addContact(ContactForm saveform){
+        contactList.setSaveform(saveform);
         contactList.addContact();
+        updateUI();
+    }
+    public void changeContact(ContactForm saveform){
+        contactList.setSaveform(saveform);
+        contactList.changeContact();
+        updateUI();
     }
 
 

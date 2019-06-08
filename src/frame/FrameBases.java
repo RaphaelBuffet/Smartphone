@@ -24,10 +24,10 @@ public class FrameBases extends JFrame {
 
 
 
-	//d�finission du fond d'�cran
+	//definission du fond d'ecran
 	private Images accueilPanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/wallpaper.gif")));
 
-	//d�finission des bouton pour acc�der aux applications
+	//definission des bouton pour acceder aux applications
 	private Button gallery =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/gallery.png")),new Color(0,28,40),new Color(145,214,206));
 	private Button contact =new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/contact.png")),new Color(0,28,40),new Color(145,214,206));
 	private Button memory = new Button(new ImageIcon(getClass().getClassLoader().getResource("Icons/memory-card.png")),new Color(0,28,40),new Color(145,214,206));
@@ -35,7 +35,7 @@ public class FrameBases extends JFrame {
 	Kernel32.SYSTEM_POWER_STATUS batteryStatus = new Kernel32.SYSTEM_POWER_STATUS();
 
 
-	//définission de la fenetre en image smartphone
+	//definission de la fenetre en image smartphone
 	private Images phonePanel = new Images(new ImageIcon(getClass().getClassLoader().getResource("Fonds/smartphone.png")));
 
 
@@ -57,11 +57,11 @@ public class FrameBases extends JFrame {
 	private MemoryApp memoryapp = new MemoryApp(this);
 
 
-	//d�finissions d'un cardLAyout
+	//definissions d'un cardLAyout
 	protected CardLayout cardLayout = new CardLayout();
 	private JPanel contentPanel = new JPanel(cardLayout);
 
-	//d�finision d0un flowLAyout pour placer les applications
+	//definision d0un flowLAyout pour placer les applications
 	private JPanel appsPanel = new JPanel(new FlowLayout());
 
 	// constructeur de la FRame principale
@@ -90,7 +90,7 @@ public class FrameBases extends JFrame {
 		phonePanel.add(contentPanel, BorderLayout.CENTER);
 
 
-		//d�finis la barre du haut de notre smartphone
+		//definis la barre du haut de notre smartphone
 		phonePanel.add(statusPanel, BorderLayout.NORTH);
 		statusPanel.add(heure, BorderLayout.WEST);
 		heure.setForeground(Color.WHITE);
@@ -102,7 +102,7 @@ public class FrameBases extends JFrame {
 		power.setPreferredSize(new Dimension(350, 50));
 		statusPanel.setPreferredSize(new Dimension(480, 45));
 
-		// ajout de nos diff�rentes card(application)
+		// ajout de nos differentes card(application)
 		contentPanel.add(accueilPanel, "AccueilPanel");
 		contentPanel.add(contactApp, "ContactApp");
 		contentPanel.add(galleryApp,"GalleryApp");
@@ -211,7 +211,7 @@ public class FrameBases extends JFrame {
 			
 		}
 	}
-	// cr�ation de l'action permettant de ferme le smartphone/fenetre
+	// creation de l'action permettant de ferme le smartphone/fenetre
 	class CloseListener implements ActionListener 
 	{
 		@Override
@@ -220,6 +220,7 @@ public class FrameBases extends JFrame {
 			contactApp.serializeObject();
 			dispose();
 	        System.exit(0);
+
 
 	    }
 	}
@@ -260,7 +261,7 @@ public class FrameBases extends JFrame {
 	class backClik implements ActionListener 
 	{
 		public void actionPerformed(ActionEvent e) {
-			cardLayout.show(contentPanel, getHistorique());//on affiche la derni�re couche
+			cardLayout.show(contentPanel, getHistorique());//on affiche la derniere couche
 		}
 	};
 }

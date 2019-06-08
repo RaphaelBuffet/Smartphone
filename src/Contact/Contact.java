@@ -47,7 +47,7 @@ public class Contact implements Serializable {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-    public String toString() { return id+". "+nom+" "+prenom; }
+    public String toString() { return nom+" "+prenom; }
 
     public String getTelephone() {
         return telephone;
