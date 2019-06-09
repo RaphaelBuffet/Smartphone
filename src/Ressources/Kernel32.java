@@ -13,9 +13,6 @@ public interface Kernel32 extends StdCallLibrary {
 
     public Kernel32 INSTANCE = (Kernel32) Native.loadLibrary("Kernel32", Kernel32.class);
 
-    /**
-     * @see http://msdn2.microsoft.com/en-us/library/aa373232.aspx
-     */
     public class SYSTEM_POWER_STATUS extends Structure {
         public byte ACLineStatus;
         public byte BatteryFlag;
@@ -36,9 +33,6 @@ public interface Kernel32 extends StdCallLibrary {
             return fields;
         }
 
-        /**
-         * The AC power status
-         */
         public String getACLineStatusString() {
             switch (ACLineStatus) {
                 case (0): return "Offline";
@@ -56,9 +50,6 @@ public interface Kernel32 extends StdCallLibrary {
         	
         }
 
-        /**
-         * The battery charge status
-         */
         public String getBatteryFlagString() {
             switch (BatteryFlag) {
                 case (1): return "High, more than 66 percent";
@@ -70,23 +61,16 @@ public interface Kernel32 extends StdCallLibrary {
             }
         }
 
-        /**
-         * The percentage of full battery charge remaining
-         */
+
         public String getBatteryLifePercent() {
             return (BatteryLifePercent == (byte) 255) ? "Unknown" : BatteryLifePercent + "%";
         }
 
-        /**
-         * The number of seconds of battery life remaining
-         */
         public String getBatteryLifeTime() {
             return (BatteryLifeTime == -1) ? "Unknown" : BatteryLifeTime + " seconds";
         }
 
-        /**
-         * The number of seconds of battery life when at full charge
-         */
+
         public String getBatteryFullLifeTime() {
             return (BatteryFullLifeTime == -1) ? "Unknown" : BatteryFullLifeTime + " seconds";
         }
@@ -103,8 +87,5 @@ public interface Kernel32 extends StdCallLibrary {
         }
     }
 
-    /**
-     * Fill the structure.
-     */
     public int GetSystemPowerStatus(SYSTEM_POWER_STATUS result);
 }
