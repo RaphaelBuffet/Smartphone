@@ -46,7 +46,7 @@ public class ContactList extends JPanel {
         buttons[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ContactForm contactForm= new ContactForm(contacts.get(0));
+                ContactForm contactForm= new ContactForm(contacts.get(0),contactApp);
                 contactHeader.setContactForm(contactForm);
                 contactHeader.changeButton();
                 contactApp.setContactForm(contactForm);
@@ -60,7 +60,7 @@ public class ContactList extends JPanel {
         buttons[1].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ContactForm contactForm= new ContactForm(contacts.get(1));
+                ContactForm contactForm= new ContactForm(contacts.get(1),contactApp);
                 contactHeader.setContactForm(contactForm);
                 contactHeader.changeButton();
                 contactApp.setContactForm(contactForm);
@@ -75,7 +75,7 @@ public class ContactList extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 contactHeader.changeButton();
-                ContactForm contactForm= new ContactForm(contacts.get(2));
+                ContactForm contactForm= new ContactForm(contacts.get(2),contactApp);
                 contactApp.setContactForm(contactForm);
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
@@ -88,7 +88,7 @@ public class ContactList extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 contactHeader.changeButton();
-                ContactForm contactForm= new ContactForm(contacts.get(3));
+                ContactForm contactForm= new ContactForm(contacts.get(3),contactApp);
                 contactApp.setContactForm(contactForm);
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
@@ -100,7 +100,7 @@ public class ContactList extends JPanel {
         buttons[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ContactForm contactForm= new ContactForm(contacts.get(4));
+                ContactForm contactForm= new ContactForm(contacts.get(4),contactApp);
                 contactHeader.setContactForm(contactForm);
                 contactHeader.changeButton();
                 contactApp.setContactForm(contactForm);
@@ -114,7 +114,7 @@ public class ContactList extends JPanel {
             buttons[6].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(6));
+                    ContactForm contactForm= new ContactForm(contacts.get(6),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -128,7 +128,7 @@ public class ContactList extends JPanel {
             buttons[7].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(7));
+                    ContactForm contactForm= new ContactForm(contacts.get(7),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -142,7 +142,7 @@ public class ContactList extends JPanel {
             buttons[8].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(8));
+                    ContactForm contactForm= new ContactForm(contacts.get(8),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -156,7 +156,7 @@ public class ContactList extends JPanel {
             buttons[9].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(9));
+                    ContactForm contactForm= new ContactForm(contacts.get(9),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -170,7 +170,7 @@ public class ContactList extends JPanel {
             buttons[10].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(10));
+                    ContactForm contactForm= new ContactForm(contacts.get(10),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -184,7 +184,7 @@ public class ContactList extends JPanel {
             buttons[5].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    ContactForm contactForm= new ContactForm(contacts.get(5));
+                    ContactForm contactForm= new ContactForm(contacts.get(5),contactApp);
                     contactHeader.setContactForm(contactForm);
                     contactHeader.changeButton();
                     contactApp.setContactForm(contactForm);
@@ -201,14 +201,11 @@ public class ContactList extends JPanel {
     {
         try
         {
-            FileOutputStream fichier = new FileOutputStream("serials/contacts.ser");
+            FileOutputStream fichier = new FileOutputStream("C:\\Users\\raphy\\Desktop\\contacts.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fichier);
             oos.writeObject(contacts);
             oos.flush();
             oos.close();
-            for (int i=0;i<contacts.size();i++){
-                System.out.println(contacts.get(i));
-            }
         }
         catch (IOException e)
         {
@@ -219,7 +216,7 @@ public class ContactList extends JPanel {
     {
         try
         {
-            FileInputStream fichier = new FileInputStream("serials/contacts.ser");
+            FileInputStream fichier = new FileInputStream("C:\\Users\\raphy\\Desktop\\contacts.ser");
             ObjectInputStream ois = new ObjectInputStream(fichier);
             contacts = (ArrayList<Contact>) ois.readObject();
             ois.close();

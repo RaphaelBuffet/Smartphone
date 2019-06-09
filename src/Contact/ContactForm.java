@@ -2,6 +2,8 @@ package Contact;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ContactForm extends JLabel {
 
@@ -19,10 +21,13 @@ public class ContactForm extends JLabel {
     private JTextField locationL= new JTextField("adresse :");
     private JTextField scoreL= new JTextField("score :");
     private boolean exist;
+    private ContactApp contactApp;
+    private int tempscore;
 
 
 
-    ContactForm(){
+    ContactForm(ContactApp contactApp){
+        this.contactApp=contactApp;
         GridLayout gridLayout=new GridLayout(6,3);
         setLayout(gridLayout);
         nomL.setEditable(false);
@@ -43,9 +48,17 @@ public class ContactForm extends JLabel {
         add(birthday);
         add(scoreL);
         add(scoreButton);
+        scoreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tempscore=contactApp.getScore();
+                scoreButton.setText(Integer.toString(tempscore));
+            }
+        });
         exist=false;
     }
-    ContactForm(Contact contact){
+    ContactForm(Contact contact,ContactApp contactapp){
+        this.contactApp=contactapp;
         GridLayout gridLayout=new GridLayout(6,3);
         setLayout(gridLayout);
         nomL.setEditable(false);
@@ -72,6 +85,13 @@ public class ContactForm extends JLabel {
         add(birthday);
         add(scoreL);
         add(scoreButton);
+        scoreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tempscore=contactApp.getScore();
+                scoreButton.setText(Integer.toString(tempscore));
+            }
+        });
         exist=true;
     }
     public void setcontact(Contact contact){
@@ -115,7 +135,12 @@ public class ContactForm extends JLabel {
         return location.getText();
     }
 
+    public String getScore(ContactApp contactApp) {
+        int scoreint=contactApp.getScore();
+        return Integer.toString(scoreint);
+    }
 
-
-
+    public void setScore(String score) {
+        this.score = score;
+    }
 }

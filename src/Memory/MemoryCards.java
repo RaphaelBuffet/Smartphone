@@ -76,7 +76,6 @@ public class MemoryCards extends JPanel implements ActionListener {
                             setColors(cards[row][column]);
                             cards[row][column].setSelected(true);
                             mouseClick++;
-                            System.out.println(mouseClick);
                         }
                     }
                 }
@@ -104,6 +103,7 @@ public class MemoryCards extends JPanel implements ActionListener {
             if (isEndOfGame() == true) {
                 JOptionPane.showMessageDialog(this, "You won with the score of " + score + " and you have use " + (100-score)+" moves !");
                 memoryApp.resetGame();
+                memoryApp.setScore(score);
                 score = 101;
             }
             c1 = null;

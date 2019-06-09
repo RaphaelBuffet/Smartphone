@@ -17,7 +17,7 @@ public class ContactApp extends JPanel {
     private ContactHeader contactHeader=new ContactHeader(this);
     private ContactList contactList=new ContactList(contactHeader,this);
     private JPanel contentPanelContact = new JPanel(cardLayoutContact);
-    private ContactForm contactForm= new ContactForm();
+    private ContactForm contactForm= new ContactForm(this);
     private FrameBases mainframe;
 
     JScrollPane scrollPane=new JScrollPane(contactList);
@@ -34,9 +34,6 @@ public class ContactApp extends JPanel {
     }
     public void serializeObject(){
         contactList.serializeObject();
-    }
-    public void deserializeObject(){
-        contactList.deSerializeObject();
     }
     public void setContactForm(ContactForm contactForm) {
         this.contactForm = contactForm;
@@ -57,6 +54,7 @@ public class ContactApp extends JPanel {
         scrollPane.setPreferredSize(new Dimension(470,680));
         contentPanelContact.add(scrollPane,"ListeContact");
         contentPanelContact.updateUI();
+        contentPanelContact.revalidate();
     }
     public void addContact(ContactForm saveform){
         contactList.setSaveform(saveform);
@@ -69,6 +67,7 @@ public class ContactApp extends JPanel {
         updateUI();
     }
 
-
-
+    public int getScore() {
+        return mainframe.getScore();
+    }
 }

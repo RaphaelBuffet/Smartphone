@@ -21,6 +21,7 @@ public class FrameBases extends JFrame {
 	private JPanel homePanel = new JPanel();
 	private String [] HistoriquePanel=new String[20];
 	private int Contactphoto;
+	private int score;
 
 
 
@@ -219,8 +220,6 @@ public class FrameBases extends JFrame {
 			contactApp.serializeObject();
 			dispose();
 	        System.exit(0);
-
-
 	    }
 	}
 	//creation de l'action du bouton accueil
@@ -263,9 +262,13 @@ public class FrameBases extends JFrame {
 			cardLayout.show(contentPanel, getHistorique());//on affiche la derniere couche
 		}
 	};
-	public GalleryApp getPhotoApp()
-	{
-		return galleryApp;
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }
 	
