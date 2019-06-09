@@ -11,6 +11,7 @@ public class Contact implements Serializable {
     private String birthday;
     private String score;
 
+    // constructeurs
     public Contact(String nom,String prenom,String telephone,String location,String birthday,String score){
         this.nom=nom;
         this.prenom=prenom;
@@ -20,6 +21,7 @@ public class Contact implements Serializable {
         this.score=score;
     }
 
+    // getter et setter
     public String getLocation() {
         return location;
     }

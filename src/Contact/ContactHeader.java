@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class ContactHeader extends JPanel {
 
+    // creation des boutons de l app
     private Button addContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/add.png")),(new Color(145,214,206)),new Color(100,200,20));
     private Button saveContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/save.png")),(new Color(145,214,206)),new Color(100,200,20));
     private Button deleteContact=new Button(new ImageIcon(getClass().getClassLoader().getResource("res/Icons/delete.png")),(new Color(145,214,206)),new Color(100,200,20));
@@ -16,6 +17,8 @@ public class ContactHeader extends JPanel {
 
     private ContactForm contactForm;
     private int currentuser=0;
+
+    //constructeur
     public ContactHeader(ContactApp contactApp){
         contactForm=new ContactForm(contactApp);
         setBackground((new Color(145,214,206)));
@@ -26,6 +29,7 @@ public class ContactHeader extends JPanel {
         add(deleteContact);
         disableDelete();
         disableBack();
+        // action sur mes boutons
         deleteContact.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,12 +84,14 @@ public class ContactHeader extends JPanel {
         });
 
     }
+    //methode de changement de bouton ajoute la sauvegarde a la place de l'ajout
     public void changeButton() {
         remove(addContact);
         add(saveContact, BorderLayout.EAST);
         revalidate();
 
     }
+    // activer et desactiver les boutons
     public void disableDelete(){
         deleteContact.setEnabled(false);
     }

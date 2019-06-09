@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class Validate {
 
+    //controle les champs requis
     public boolean isNotEmpty(JTextField textField)
     {
         if (textField.getText().isEmpty())
@@ -18,6 +19,7 @@ public class Validate {
             return false;
         return true;
     }
+    //controle les pattern des numero de telephone
     public boolean phoneValide(JTextField textField)
     {
         String phonePattern = "(\\+41)?(\\s)?(0)?\\d{2}(\\s)?\\d{3}(\\s)?\\d{2}(\\s)?\\d{2}";

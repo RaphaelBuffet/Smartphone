@@ -24,8 +24,7 @@ public class ContactForm extends JLabel {
     private ContactApp contactApp;
     private int tempscore;
 
-
-
+    //constructeurs de nouveau contact
     ContactForm(ContactApp contactApp){
         this.contactApp=contactApp;
         GridLayout gridLayout=new GridLayout(6,3);
@@ -57,6 +56,7 @@ public class ContactForm extends JLabel {
         });
         exist=false;
     }
+    // constructeur si le contact existe deja
     ContactForm(Contact contact,ContactApp contactapp){
         this.contactApp=contactapp;
         GridLayout gridLayout=new GridLayout(6,3);
@@ -96,6 +96,7 @@ public class ContactForm extends JLabel {
         });
         exist=true;
     }
+    // methode qui controle la validite des champs prinicpaux (prenom et telephone)
     public boolean validation()
     {
         boolean validated;
@@ -111,6 +112,7 @@ public class ContactForm extends JLabel {
             return validated;
         return validated;
     }
+    // gettes et setter
     public boolean exist(){
         return exist;
     }
