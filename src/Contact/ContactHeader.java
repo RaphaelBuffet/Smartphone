@@ -67,9 +67,11 @@ public class ContactHeader extends JPanel {
                     if (!contactForm.exist()) {
                         contactApp.addContact(contactForm);
                         contactForm=new ContactForm();
+                        System.out.println("contact non existant");
                     }
                     else {
                         contactApp.changeContact(contactForm,currentuser);
+                        System.out.println("contact existant");
                     }
                 }
             }
