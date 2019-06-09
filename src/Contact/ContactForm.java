@@ -10,7 +10,8 @@ public class ContactForm extends JLabel {
     private JTextField number = new JTextField();
     private JTextField location = new JTextField();
     private JTextField birthday = new JTextField();
-    private JTextField score = new JTextField();
+    private String score="0";
+    private JButton scoreButton = new JButton(score);
     private JTextField prenomL= new JTextField("Prenom :");
     private JTextField nomL= new JTextField("Nom :");
     private JTextField numberL= new JTextField("Numero :");
@@ -30,7 +31,6 @@ public class ContactForm extends JLabel {
         locationL.setEditable(false);
         birthdayL.setEditable(false);
         scoreL.setEditable(false);
-        score.setEditable(false);
         add(nomL);
         add(nom);
         add(prenomL);
@@ -42,7 +42,7 @@ public class ContactForm extends JLabel {
         add(birthdayL);
         add(birthday);
         add(scoreL);
-        add(score);
+        add(scoreButton);
         exist=false;
     }
     ContactForm(Contact contact){
@@ -54,13 +54,12 @@ public class ContactForm extends JLabel {
         locationL.setEditable(false);
         birthdayL.setEditable(false);
         scoreL.setEditable(false);
-        score.setEditable(false);
         nom.setText(contact.getNom());
         prenom.setText(contact.getPrenom());
         number.setText(contact.getTelephone());
         location.setText(contact.getLocation());
         birthday.setText(contact.getBirthday());
-        score.setText(contact.getScore());
+        score=contact.getScore();
         add(nomL);
         add(nom);
         add(prenomL);
@@ -72,7 +71,7 @@ public class ContactForm extends JLabel {
         add(birthdayL);
         add(birthday);
         add(scoreL);
-        add(score);
+        add(scoreButton);
         exist=true;
     }
     public void setcontact(Contact contact){

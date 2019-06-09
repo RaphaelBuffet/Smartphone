@@ -9,11 +9,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GalleryApp extends JPanel {
 
     private GalleryImages galleryImages = new GalleryImages(this);
     private GalleryHeader galleryHeader = new GalleryHeader(this);
+    private ArrayList<GalleryImages> photos = new ArrayList<GalleryImages>();
 
     //constructeur
     public GalleryApp(FrameBases frameBases){
@@ -30,5 +32,10 @@ public class GalleryApp extends JPanel {
 
     public GalleryImages getGalleryImages() {
         return galleryImages;
+    }
+
+    public ArrayList<GalleryImages> getPhotos()
+    {
+        return photos;
     }
 }

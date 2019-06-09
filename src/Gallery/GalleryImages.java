@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +19,12 @@ public class GalleryImages extends JPanel {
     private File folderGallery = new File("src/res/Gallery");
     private ArrayList<File> filesImage = new ArrayList<>(Arrays.asList(folderGallery.listFiles()));
     private ArrayList<JButton> listButton = new ArrayList<>();
+    private ImageIcon thumbnail143143;
+    private ImageIcon thumbnail480300;
+    private double width;
+    private double height;
+    private transient BufferedImage image;
+
 
 
     //divers
@@ -46,6 +53,9 @@ public class GalleryImages extends JPanel {
 
     public GalleryImages(GalleryApp galleryApp){
         this.galleryApp = galleryApp;
+
+        //this.thumbnail143143 = cropedImage(143, 143);
+        //this.thumbnail480300 = cropedImage(480, 300);
 
         setBackground(Color.BLACK);
         setPreferredSize(dimensionImages);
@@ -198,5 +208,32 @@ public class GalleryImages extends JPanel {
             public void mouseExited(MouseEvent e) {
 
             }
+   }
+    public ImageIcon getThumbnail143143() {
+        return thumbnail143143;
+    }
+
+    public ImageIcon getThumbnail480300() {
+        return thumbnail480300;
+    }
+
+    private ImageIcon cropedImage(double desiredWidth, double desiredHeight)
+    {
+
+        BufferedImage scaledImage;
+        Image cropedImage;
+        double ratio = Math.min((3*desiredWidth)/width, (3*desiredHeight)/height);
+        double scaledWidth = width*ratio;
+        double scaledHeight = height*ratio;;
+
+        scaledImage = new BufferedImage((int) scaledWidth, (int) scaledHeight, Image.SCALE_SMOOTH);
+        Graphics2D g2d = scaledImage.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+        g2d.drawImage(image, 0, 0, (int) scaledWidth, (int) scaledHeight, null);
+        g2d.dispose();
+
+        cropedImage = scaledImage.getSubimage((int) (scaledWidth-desiredWidth)/2, (int) (scaledHeight-desiredHeight)/2, (int) desiredWidth, (int) desiredHeight);
+
+        return new ImageIcon(cropedImage);
     }
 }

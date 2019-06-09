@@ -18,9 +18,11 @@ public class ContactApp extends JPanel {
     private ContactList contactList=new ContactList(contactHeader,this);
     private JPanel contentPanelContact = new JPanel(cardLayoutContact);
     private ContactForm contactForm= new ContactForm();
+    private FrameBases mainframe;
 
     JScrollPane scrollPane=new JScrollPane(contactList);
     public ContactApp(FrameBases mainFrame){
+        this.mainframe=mainFrame;
         add(contactHeader,BorderLayout.NORTH);
         setBackground(Color.BLACK);
         scrollPane.createVerticalScrollBar();

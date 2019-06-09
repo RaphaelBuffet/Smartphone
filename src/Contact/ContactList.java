@@ -110,20 +110,90 @@ public class ContactList extends JPanel {
                 contactHeader.setCurrentuser(4);
             }
         });
+        if(contacts.size()>6)
+            buttons[6].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(6));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(6);
+                }
+            });
+        if(contacts.size()>7)
+            buttons[7].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(7));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(7);
+                }
+            });
+        if(contacts.size()>8)
+            buttons[8].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(8));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(8);
+                }
+            });
+        if(contacts.size()>9)
+            buttons[9].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(9));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(9);
+                }
+            });
+        if(contacts.size()>10)
+            buttons[10].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(10));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(10);
+                }
+            });
         if(contacts.size()>5)
-        buttons[5].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ContactForm contactForm= new ContactForm(contacts.get(5));
-                contactHeader.setContactForm(contactForm);
-                contactHeader.changeButton();
-                contactApp.setContactForm(contactForm);
-                contactApp.changecard("ContactForm");
-                contactHeader.enableDelete();
-                contactHeader.enableBack();
-                contactHeader.setCurrentuser(5);
-            }
-        });
+            buttons[5].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ContactForm contactForm= new ContactForm(contacts.get(5));
+                    contactHeader.setContactForm(contactForm);
+                    contactHeader.changeButton();
+                    contactApp.setContactForm(contactForm);
+                    contactApp.changecard("ContactForm");
+                    contactHeader.enableDelete();
+                    contactHeader.enableBack();
+                    contactHeader.setCurrentuser(5);
+                }
+            });
 
     }
 
