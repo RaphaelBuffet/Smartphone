@@ -12,7 +12,7 @@ public class ContactForm extends JLabel {
     private JTextField number = new JTextField();
     private JTextField location = new JTextField();
     private JTextField birthday = new JTextField();
-    private String score="0";
+    private String score;
     private JButton scoreButton = new JButton(score);
     private JTextField prenomL= new JTextField("Prenom :");
     private JTextField nomL= new JTextField("Nom :");
@@ -73,6 +73,7 @@ public class ContactForm extends JLabel {
         location.setText(contact.getLocation());
         birthday.setText(contact.getBirthday());
         score=contact.getScore();
+        scoreButton.setText(score);
         add(nomL);
         add(nom);
         add(prenomL);
@@ -89,6 +90,7 @@ public class ContactForm extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tempscore=contactApp.getScore();
+                contact.setScore(tempscore);
                 scoreButton.setText(Integer.toString(tempscore));
             }
         });
