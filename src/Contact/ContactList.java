@@ -201,7 +201,7 @@ public class ContactList extends JPanel {
     {
         try
         {
-            FileOutputStream fichier = new FileOutputStream("C:\\Users\\raphy\\Desktop\\contacts.ser");
+            FileOutputStream fichier = new FileOutputStream("C:\\Users\\srhmr\\OneDrive\\Bureau\\cours\\PROGOBJET\\PROJET\\contacts.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fichier);
             oos.writeObject(contacts);
             oos.flush();
@@ -216,7 +216,7 @@ public class ContactList extends JPanel {
     {
         try
         {
-            FileInputStream fichier = new FileInputStream("C:\\Users\\raphy\\Desktop\\contacts.ser");
+            FileInputStream fichier = new FileInputStream("C:\\Users\\srhmr\\OneDrive\\Bureau\\cours\\PROGOBJET\\PROJET\\contacts.ser");
             ObjectInputStream ois = new ObjectInputStream(fichier);
             contacts = (ArrayList<Contact>) ois.readObject();
             ois.close();

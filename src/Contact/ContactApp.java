@@ -1,6 +1,7 @@
 package Contact;
 
 
+import Gallery.GalleryApp;
 import Ressources.Button;
 import frame.FrameBases;
 
@@ -19,8 +20,8 @@ public class ContactApp extends JPanel {
     private JPanel contentPanelContact = new JPanel(cardLayoutContact);
     private ContactForm contactForm= new ContactForm(this);
     private FrameBases mainframe;
+    private JScrollPane scrollPane=new JScrollPane(contactList);
 
-    JScrollPane scrollPane=new JScrollPane(contactList);
     public ContactApp(FrameBases mainFrame){
         this.mainframe=mainFrame;
         add(contactHeader,BorderLayout.NORTH);
@@ -35,6 +36,7 @@ public class ContactApp extends JPanel {
     public void serializeObject(){
         contactList.serializeObject();
     }
+
     public void setContactForm(ContactForm contactForm) {
         this.contactForm = contactForm;
         contentPanelContact.add(contactForm,"ContactForm");
@@ -46,6 +48,7 @@ public class ContactApp extends JPanel {
     public void deleteContact(int place){
         contactList.removecontact(place);
     }
+
     public void updateList(){
         contentPanelContact.remove(scrollPane);
         ContactList contactLists=new ContactList(contactHeader,this);
@@ -54,7 +57,28 @@ public class ContactApp extends JPanel {
         scrollPane.setPreferredSize(new Dimension(470,680));
         contentPanelContact.add(scrollPane,"ListeContact");
         contentPanelContact.updateUI();
-        contentPanelContact.revalidate();
+
+
+        /*removeAll();
+
+         CardLayout cardLayoutContact = new CardLayout();
+         ContactHeader contactHeader=new ContactHeader(this);
+         ContactList contactList=new ContactList(contactHeader,this);
+         JPanel contentPanelContact = new JPanel(cardLayoutContact);
+         ContactForm contactForm= new ContactForm(this);
+         FrameBases mainframe;
+         JScrollPane scrollPane=new JScrollPane(contactList);
+
+        add(contactHeader,BorderLayout.NORTH);
+        setBackground(Color.BLACK);
+        scrollPane.createVerticalScrollBar();
+        scrollPane.setPreferredSize(new Dimension(470,680));
+        add(contentPanelContact);
+        contentPanelContact.add(scrollPane, "ListeContact");
+        cardLayoutContact.show(contentPanelContact, "ListeContact");
+
+        revalidate();*/
+
     }
     public void addContact(ContactForm saveform){
         contactList.setSaveform(saveform);
