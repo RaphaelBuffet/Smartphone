@@ -94,13 +94,6 @@ public class ContactForm extends JLabel {
         });
         exist=true;
     }
-    public void setcontact(Contact contact){
-        contact.setNom(nom.getText());
-        contact.setPrenom(prenom.getText());
-        contact.setTelephone(number.getText());
-        contact.setLocation(location.getText());
-        contact.setBirthday(birthday.getText());
-    }
     public boolean validation()
     {
         boolean validated;
@@ -133,14 +126,5 @@ public class ContactForm extends JLabel {
     }
     public String getlocation(){
         return location.getText();
-    }
-
-    public String getScore(ContactApp contactApp) {
-        int scoreint=contactApp.getScore();
-        return Integer.toString(scoreint);
-    }
-
-    public void setScore(String score) {
-        this.score = score;
     }
 }

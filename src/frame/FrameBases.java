@@ -160,46 +160,13 @@ public class FrameBases extends JFrame {
 		Historise(card);
 		cardLayout.show(contentPanel, card);
 	}
-	
-	public void changeCard(String card, int idContact){
-		Historise(card);
-		cardLayout.show(contentPanel, card);
-	}
+
 	//getter et setter
 	private String getbatterypourcentPercent()
 	{
 		return batteryStatus.getBatteryLifePercent() ;
 	}
-	
-	private String getbatteryState()
-	{
-		return batteryStatus.getBatterystate() ;
-	}
-	
-	public void setContentPanel(JPanel contentPanel) {
-		this.contentPanel = contentPanel;
-	}
-	
-	public CardLayout getCardLayout() 
-	{
-		return cardLayout;
-	}
-	
-	public JPanel getContentPanel() {
-		return contentPanel;
-	}
-	//public GalleryApp getGalleryApp()
-	//{
-	//	return galleryApp;
-	//}
-	
-	public int isContactphoto() {
-		
-		return Contactphoto;
-	}
-	public void setContactphoto(int thisID) {
-		Contactphoto = thisID;
-	}
+
 	
 	//creation de la classe pour le temps r�el
 	class CurrentTime implements ActionListener 

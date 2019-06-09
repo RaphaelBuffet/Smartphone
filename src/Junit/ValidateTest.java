@@ -17,7 +17,7 @@ public class ValidateTest {
 	
 	@org.junit.Test
 	public void test() {
-		textField.setText("Audrey");
+		textField.setText("Raphy");
 		assertTrue(validate.isNotEmpty(textField));
 
 		textField.setText("0786841723");
