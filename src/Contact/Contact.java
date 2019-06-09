@@ -4,50 +4,28 @@ import java.io.Serializable;
 
 public class Contact implements Serializable {
 
-    private int id;
     private String nom;
     private String prenom;
     private String telephone;
     private String location;
     private String birthday;
-    private int score;
-    private String scoreString;
+    private String score;
 
-    public Contact(int id,String nom,String prenom,String telephone,String location,String birthday){
-        this.id=id;
+    public Contact(String nom,String prenom,String telephone,String location,String birthday,String score){
         this.nom=nom;
         this.prenom=prenom;
         this.telephone=telephone;
         this.location=location;
         this.birthday=birthday;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+        this.score=score;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getBirthday() {
         return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
     }
     public String toString() { return nom+" "+prenom; }
 
@@ -64,12 +42,10 @@ public class Contact implements Serializable {
     }
 
     public String getScore() {
-        scoreString=Integer.toString(score);
-        return (scoreString);
+        return (score);
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
-        System.out.println(score);
     }
 }

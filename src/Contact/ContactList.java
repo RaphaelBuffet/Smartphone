@@ -239,10 +239,10 @@ public class ContactList extends JPanel {
         this.saveform = saveform;
     }
 
-    public void addContact(){contacts.add(new Contact(contacts.size(),saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday()));
+    public void addContact(){contacts.add(new Contact(saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday(),saveform.getscore()));
         updateUI();}
     public void changeContact(int place){contacts.remove(place);
-                                contacts.add(new Contact(place,saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday()));
+                                contacts.add(new Contact(saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday(),saveform.getscore()));
                                 updateUI();
     }
 

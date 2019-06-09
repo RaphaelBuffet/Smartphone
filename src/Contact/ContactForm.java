@@ -90,7 +90,7 @@ public class ContactForm extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tempscore=contactApp.getScore();
-                contact.setScore(tempscore);
+                contact.setScore(Integer.toString(tempscore));
                 scoreButton.setText(Integer.toString(tempscore));
             }
         });
@@ -128,5 +128,8 @@ public class ContactForm extends JLabel {
     }
     public String getlocation(){
         return location.getText();
+    }
+    public String getscore(){
+        return scoreButton.getText();
     }
 }
