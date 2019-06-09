@@ -42,6 +42,7 @@ public class ContactList extends JPanel {
         for (int i=0;i<contacts.size();i++){
             System.out.println(contacts.get(i));
         }
+        if(contacts.size()>0)
         buttons[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,8 +53,10 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(0);
             }
         });
+        if(contacts.size()>1)
         buttons[1].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -64,8 +67,10 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(1);
             }
         });
+        if(contacts.size()>2)
         buttons[2].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,8 +80,10 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(2);
             }
         });
+        if(contacts.size()>3)
         buttons[3].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,8 +93,10 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(3);
             }
         });
+        if(contacts.size()>4)
         buttons[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,8 +107,10 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(4);
             }
         });
+        if(contacts.size()>5)
         buttons[5].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -110,6 +121,7 @@ public class ContactList extends JPanel {
                 contactApp.changecard("ContactForm");
                 contactHeader.enableDelete();
                 contactHeader.enableBack();
+                contactHeader.setCurrentuser(5);
             }
         });
 
@@ -162,8 +174,8 @@ public class ContactList extends JPanel {
 
     public void addContact(){contacts.add(new Contact(contacts.size(),saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday()));
         updateUI();}
-    public void changeContact(){contacts.remove(1);
-                                contacts.add(new Contact(contacts.get(1).getId(),saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday()));
+    public void changeContact(int place){contacts.remove(place);
+                                contacts.add(new Contact(place,saveform.getnom(),saveform.getprenom(),saveform.getnumber(),saveform.getlocation(),saveform.getbirthday()));
                                 updateUI();
     }
 

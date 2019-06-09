@@ -30,7 +30,7 @@ public class AppModifyPanel extends AppInterface {
 		panelButton2.add(back);
 	}
 
-	 // Méthode lors de la sauvegarde
+	 // Methode lors de la sauvegarde
 
 
 	public void save() 
@@ -41,7 +41,7 @@ public class AppModifyPanel extends AppInterface {
 	}
 
 
-	 // Méthode lors de l'edition
+	 // Mï¿½thode lors de l'edition
 
 	public void edit() 
 	{ 
@@ -65,10 +65,6 @@ public class AppModifyPanel extends AppInterface {
 	public JButton getSave() 
 	{
 		return save;
-	}
-	public JButton getSavegallery() 
-	{
-		return savegallery;
 	}
 
 }

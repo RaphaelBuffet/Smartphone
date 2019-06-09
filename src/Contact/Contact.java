@@ -10,6 +10,8 @@ public class Contact implements Serializable {
     private String telephone;
     private String location;
     private String birthday;
+    private int score;
+    private String scoreString;
 
     public Contact(int id,String nom,String prenom,String telephone,String location,String birthday){
         this.id=id;
@@ -60,7 +62,13 @@ public class Contact implements Serializable {
     public String getPrenom() {
         return prenom;
     }
-    public int getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public String getScore() {
+        scoreString=Integer.toString(score);
+        return (scoreString);
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

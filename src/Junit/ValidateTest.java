@@ -3,7 +3,7 @@ package Junit;
 import static org.junit.Assert.*;
 import java.awt.Color;
 
-import Contact.Validate;
+import Contacts.Validate;
 import org.junit.Test;
 
 import javax.swing.*;

@@ -61,9 +61,9 @@ public class ContactApp extends JPanel {
         contactList.addContact();
         updateUI();
     }
-    public void changeContact(ContactForm saveform){
+    public void changeContact(ContactForm saveform,int place){
         contactList.setSaveform(saveform);
-        contactList.changeContact();
+        contactList.changeContact(place);
         updateUI();
     }
 

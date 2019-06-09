@@ -162,7 +162,6 @@ public class FrameBases extends JFrame {
 	
 	public void changeCard(String card, int idContact){
 		Historise(card);
-		gallery.setIdContact(idContact);
 		cardLayout.show(contentPanel, card);
 	}
 	//getter et setter
@@ -264,5 +263,9 @@ public class FrameBases extends JFrame {
 			cardLayout.show(contentPanel, getHistorique());//on affiche la derniere couche
 		}
 	};
+	public GalleryApp getPhotoApp()
+	{
+		return galleryApp;
+	}
 }
 	

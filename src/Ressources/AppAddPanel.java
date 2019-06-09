@@ -1,20 +1,22 @@
 package Ressources;
 
 import java.awt.Color;
+import Ressources.Button;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class AppAddPanel extends AppInterface {
 
-	private JButton save = new Button(new ImageIcon("image/icons/save.png"));
+	private ImageIcon imgSave = new ImageIcon("image/icons/save.png");
+	private JButton save = new Ressources.Button(imgSave);
 
-	private JButton cancel = new Button(new ImageIcon("image/icons/Back.png"));
+	private ImageIcon imgcancel = new ImageIcon("image/icons/Back.png");
+	private JButton cancel = new Button(imgcancel);
 
 
-	 // Constructeur des entêtes d'ajout
-	 // @param PANELNAME
-	 // @param COLORPANEL
+	 // Constructeur des entetes d'ajout
+
 
 	public AppAddPanel(String PANELNAME, Color COLORPANEL)
 	{
